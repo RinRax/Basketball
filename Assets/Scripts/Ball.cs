@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public AudioSource floorSound, rimSound, backboardSound, poleSound;
+    public AudioClip floorSound, rimSound, backboardSound, poleSound;
+
+    AudioSource audioSource;
 
     void Start()
     {
-        floorSound = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -16,28 +18,23 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Floor")
+        if (collision == null) return;
+
+        AudioClip toPlay;
+
+        switch (collision.gameObject.name)
         {
-            floorSound.volume = gameObject.GetComponent<Rigidbody>().velocity.y / 10;
-            floorSound.Play();
+            case "Floor":
+                toPlay = floorSound; break;
+            case "Rim":
+                toPlay = rimSound; break;
+            default: toPlay = floorSound; break;
         }
 
-        if (collision.gameObject.name == "Rim")
-        {
-            rimSound.volume = gameObject.GetComponent<Rigidbody>().velocity.y / 10;
-            rimSound.Play();
-        }
+        Vector3 velocity = gameObject.GetComponent<Rigidbody>().velocity;
+        audioSource.clip = toPlay;
+        audioSource.volume = (velocity.x + velocity.y) / 10;
 
-        if (collision.gameObject.name == "Backboard")
-        {
-            backboardSound.volume = gameObject.GetComponent<Rigidbody>().velocity.y / 10;
-            backboardSound.Play();
-        }
-
-        if (collision.gameObject.name == "Pole")
-        {
-            poleSound.volume = gameObject.GetComponent<Rigidbody>().velocity.y / 10;
-            poleSound.Play();
-        }
+        audioSource.Play();
     }
 }

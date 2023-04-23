@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -291,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91287002}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -6.5, y: 4.9, z: -2.17}
+  m_LocalPosition: {x: -7.76, y: 3.68, z: -0}
   m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -308,7 +308,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 392f758aa08802447aae7f46a7917ea0, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -406,7 +406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585c9f63e70204b4ea72be8fba7dfdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
+  floorSound: {fileID: 8300000, guid: 392f758aa08802447aae7f46a7917ea0, type: 3}
+  rimSound: {fileID: 8300000, guid: f69cd1af15185784e899aba5c7e2ef44, type: 3}
+  backboardSound: {fileID: 0}
+  poleSound: {fileID: 0}
 --- !u!1 &357558461
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,8 +808,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: ac7fff3ec1f08a84f9b947b9c9ad51b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 651410289}
   m_SourcePrefab: {fileID: 100100000, guid: ac7fff3ec1f08a84f9b947b9c9ad51b1, type: 3}
+--- !u!1 &651410284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: ac7fff3ec1f08a84f9b947b9c9ad51b1, type: 3}
+  m_PrefabInstance: {fileID: 528343371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &651410289
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651410284}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1889525384}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1144,7 @@ GameObject:
   - component: {fileID: 1786250457}
   - component: {fileID: 1786250456}
   m_Layer: 0
-  m_Name: Rimholder
+  m_Name: Rim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
