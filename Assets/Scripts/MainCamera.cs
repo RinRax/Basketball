@@ -23,10 +23,10 @@ public class Camera : MonoBehaviour
 
     void Controls()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonUp(0))
         {
             lerp = 0;
-            dLerp = 2.5f;
+            dLerp = 2f;
         }
     }
 }

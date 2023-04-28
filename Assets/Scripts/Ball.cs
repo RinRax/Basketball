@@ -49,10 +49,17 @@ public class Ball : MonoBehaviour
     void Controls()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.isKinematic = !rb.isKinematic;
+            Vector3.Lerp(transform.position, view2d.position, 1);
+        }*/
+
+        if (Input.GetMouseButtonDown(0))
         {
             rb.isKinematic = !rb.isKinematic;
             Vector3.Lerp(transform.position, view2d.position, 1);
         }
+
     }
 }
